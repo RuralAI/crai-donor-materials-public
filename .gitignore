@@ -1,0 +1,42 @@
+# OS files
+.DS_Store
+
+# Unused assets
+ai-institute-logo.png
+Carnegie email headers82.jpg
+crai-logo.png
+crai-logo-new.png
+crai-logo-transparent.png
+drone-eft-*.jpg
+jacob-padilla-*.jpg
+land-o-lakes-*.jpg
+samuel-regan-*.jpg
+waqar-mujahid-*.jpg
+yilei-jerry-bao-*.jpg
+for-businesses.jpg
+
+# Next.js boilerplate leftovers
+file.svg
+globe.svg
+next.svg
+vercel.svg
+window.svg
+
+# Working drafts
+*.docx
+Visual Design Guide.html
+
+# Video assets
+videos/
+
+# Duplicate root-level stock photos
+/beth-macdonald-*.jpg
+
+# Unused images in images/ subfolder
+images/drone-eft-*.jpg
+images/jacob-padilla-*.jpg
+images/land-o-lakes-*.jpg
+images/samuel-regan-*.jpg
+images/waqar-mujahid-*.jpg
+images/yilei-jerry-bao-*.jpg
+images/README.md

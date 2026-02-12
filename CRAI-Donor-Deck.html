@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRAI Donor Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  @page {
+    size: letter;
+    margin: 0;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  :root {
+    --forest-green: #1a4d2e;
+    --tech-blue: #2e5f8a;
+    --warm-earth: #8b6f47;
+    --horizon-orange: #d97742;
+    --prairie-gold: #e8b44f;
+    --charcoal: #2d3436;
+    --slate-gray: #636e72;
+    --light-gray: #dfe6e9;
+    --off-white: #f5f6f7;
+    --deep-green: #0f2e1a;
+  }
+
+  html {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  body {
+    font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Arial, sans-serif;
+    color: var(--charcoal);
+    line-height: 1.6;
+    background: white;
+  }
+
+  .page {
+    width: 8.5in;
+    min-height: 11in;
+    position: relative;
+    overflow: hidden;
+    page-break-after: always;
+    background: white;
+  }
+
+  .page:last-child {
+    page-break-after: auto;
+  }
+
+  /* ===== PAGE 1: COVER ===== */
+  .cover {
+    background: linear-gradient(165deg, var(--deep-green) 0%, var(--forest-green) 40%, var(--tech-blue) 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 0;
+    color: white;
+  }
+
+  .cover-top {
+    padding: 0.6in 0.7in 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
+  }
+
+  .cover-logo {
+    height: 52px;
+    filter: brightness(0) invert(1);
+  }
+
+  .cover-badge {
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 6px 14px;
+    border-radius: 20px;
+  }
+
+  .cover-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    opacity: 0.2;
+    z-index: 0;
+  }
+
+  .cover-content {
+    padding: 0 0.7in 1in;
+    position: relative;
+    z-index: 1;
+    margin-top: auto;
+  }
+
+  .cover-rule {
+    width: 60px;
+    height: 3px;
+    background: var(--prairie-gold);
+    margin-bottom: 24px;
+    border: none;
+  }
+
+  .cover h1 {
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 1.08;
+    letter-spacing: -1px;
+    margin-bottom: 14px;
+  }
+
+  .cover h2 {
+    font-size: 20px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.85);
+    line-height: 1.4;
+    max-width: 5.5in;
+  }
+
+  .cover-footer {
+    padding: 0 0.7in 0.5in;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    font-size: 10px;
+    color: rgba(255,255,255,0.5);
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+  }
+
+  /* ===== PAGE 2: INTRO ===== */
+  .intro-page {
+    padding: 0;
+  }
+
+  .page-header {
+    padding: 0.35in 0.7in 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 0.2in;
+  }
+
+  .page-header-section {
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--slate-gray);
+  }
+
+  .intro-hero-strip {
+    width: 100%;
+    height: 2in;
+    object-fit: cover;
+    object-position: center 40%;
+  }
+
+  .intro-content {
+    padding: 0.25in 0.7in 0.3in;
+  }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--tech-blue);
+    margin-bottom: 8px;
+  }
+
+  .section-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--forest-green);
+    line-height: 1.15;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+
+  .body-text {
+    font-size: 10px;
+    line-height: 1.6;
+    color: var(--charcoal);
+    margin-bottom: 10px;
+  }
+
+  .body-text:last-child {
+    margin-bottom: 0;
+  }
+
+  .stat-row {
+    display: flex;
+    gap: 14px;
+    margin: 14px 0;
+  }
+
+  .stat-card {
+    flex: 1;
+    background: linear-gradient(135deg, var(--forest-green), var(--tech-blue));
+    color: white;
+    border-radius: 10px;
+    padding: 14px 16px;
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 26px;
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 3px;
+  }
+
+  .stat-label {
+    font-size: 8.5px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    opacity: 0.85;
+    line-height: 1.3;
+  }
+
+  .callout-box {
+    background: var(--off-white);
+    border-left: 4px solid var(--prairie-gold);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 20px 0;
+  }
+
+  .callout-box p {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 11px;
+    font-style: italic;
+    line-height: 1.65;
+    color: var(--charcoal);
+  }
+
+  /* ===== PAGE 3: INVESTMENT THESIS ===== */
+  .thesis-page {
+    padding: 0;
+  }
+
+  .thesis-content {
+    padding: 0 0.7in 0.5in;
+  }
+
+  .thesis-split {
+    display: flex;
+    gap: 0.3in;
+    margin-top: 0.15in;
+  }
+
+  .thesis-left {
+    flex: 1;
+  }
+
+  .thesis-right {
+    width: 2.8in;
+    flex-shrink: 0;
+  }
+
+  .thesis-image {
+    width: 100%;
+    height: 2.4in;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 16px;
+  }
+
+  .advantage-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .advantage-list li {
+    font-size: 10px;
+    line-height: 1.5;
+    padding: 8px 0 8px 28px;
+    position: relative;
+    border-bottom: 1px solid var(--light-gray);
+    color: var(--charcoal);
+  }
+
+  .advantage-list li:last-child {
+    border-bottom: none;
+  }
+
+  .advantage-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 16px;
+    height: 16px;
+    background: var(--forest-green);
+    border-radius: 50%;
+    opacity: 0.15;
+  }
+
+  .advantage-list li::after {
+    content: '\2713';
+    position: absolute;
+    left: 3.5px;
+    top: 11px;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--forest-green);
+  }
+
+  .federal-box {
+    background: linear-gradient(135deg, #f0f4f8, #e8edf2);
+    border-radius: 10px;
+    padding: 22px 24px;
+    margin-top: 20px;
+    border: 1px solid rgba(46,95,138,0.12);
+  }
+
+  .federal-box-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--tech-blue);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .federal-box-title::before {
+    content: '';
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background: var(--tech-blue);
+    border-radius: 5px;
+    opacity: 0.15;
+  }
+
+  .federal-box p {
+    font-size: 10px;
+    line-height: 1.6;
+    color: var(--charcoal);
+  }
+
+  /* ===== PAGE 4: PROGRAMS ===== */
+  .programs-page {
+    padding: 0;
+  }
+
+  .programs-content {
+    padding: 0 0.7in 0.5in;
+  }
+
+  .programs-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 20px;
+  }
+
+  .program-card {
+    border-radius: 10px;
+    padding: 22px 22px 18px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+  }
+
+  .program-card.ignition {
+    background: linear-gradient(180deg, rgba(26,77,46,0.06) 0%, rgba(26,77,46,0.02) 100%);
+  }
+  .program-card.ignition::before { background: var(--forest-green); }
+
+  .program-card.fluency {
+    background: linear-gradient(180deg, rgba(46,95,138,0.06) 0%, rgba(46,95,138,0.02) 100%);
+  }
+  .program-card.fluency::before { background: var(--tech-blue); }
+
+  .program-card.council {
+    background: linear-gradient(180deg, rgba(139,111,71,0.06) 0%, rgba(139,111,71,0.02) 100%);
+  }
+  .program-card.council::before { background: var(--warm-earth); }
+
+  .program-card.summit {
+    background: linear-gradient(180deg, rgba(217,119,66,0.06) 0%, rgba(217,119,66,0.02) 100%);
+  }
+  .program-card.summit::before { background: var(--horizon-orange); }
+
+  .program-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+
+  .program-card.ignition .program-icon { background: rgba(26,77,46,0.12); color: var(--forest-green); }
+  .program-card.fluency .program-icon { background: rgba(46,95,138,0.12); color: var(--tech-blue); }
+  .program-card.council .program-icon { background: rgba(139,111,71,0.12); color: var(--warm-earth); }
+  .program-card.summit .program-icon { background: rgba(217,119,66,0.12); color: var(--horizon-orange); }
+
+  .program-name {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--charcoal);
+  }
+
+  .program-desc {
+    font-size: 9.5px;
+    line-height: 1.6;
+    color: var(--slate-gray);
+  }
+
+  .approach-banner {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 18px 24px;
+    margin-top: 20px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    border: 1px solid var(--light-gray);
+  }
+
+  .approach-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, var(--forest-green), var(--tech-blue));
+    border-radius: 10px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+  }
+
+  .approach-text {
+    font-size: 10px;
+    line-height: 1.6;
+    color: var(--charcoal);
+  }
+
+  .approach-text strong {
+    color: var(--forest-green);
+  }
+
+  .programs-image-strip {
+    display: flex;
+    gap: 12px;
+    margin-top: 20px;
+  }
+
+  .programs-image-strip img {
+    flex: 1;
+    min-width: 0;
+    height: 1.5in;
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+  /* ===== PAGE 5: THE ASK ===== */
+  .ask-page {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .ask-content {
+    padding: 0 0.7in;
+    flex: 1;
+  }
+
+  .philanthropy-section {
+    margin-bottom: 0.3in;
+  }
+
+  .pull-quote {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.55;
+    color: var(--forest-green);
+    margin: 20px 0;
+    padding-left: 20px;
+    border-left: 3px solid var(--prairie-gold);
+  }
+
+  .ask-box {
+    background: linear-gradient(135deg, var(--forest-green), var(--deep-green));
+    color: white;
+    border-radius: 14px;
+    padding: 28px 30px;
+    margin: 20px 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .ask-box::after {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 160px;
+    height: 160px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 50%;
+  }
+
+  .ask-amount {
+    font-size: 36px;
+    font-weight: 800;
+    margin-bottom: 4px;
+    letter-spacing: -1px;
+  }
+
+  .ask-timeline {
+    font-size: 12px;
+    opacity: 0.7;
+    margin-bottom: 18px;
+    font-weight: 500;
+  }
+
+  .ask-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .ask-list li {
+    font-size: 11px;
+    line-height: 1.5;
+    padding: 7px 0 7px 24px;
+    position: relative;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .ask-list li:last-child {
+    border-bottom: none;
+  }
+
+  .ask-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 12px;
+    width: 10px;
+    height: 10px;
+    border: 2px solid var(--prairie-gold);
+    border-radius: 50%;
+  }
+
+  .closing-text {
+    font-family: 'Merriweather', Georgia, serif;
+    font-size: 11.5px;
+    line-height: 1.7;
+    color: var(--charcoal);
+    font-style: italic;
+    margin: 20px 0;
+  }
+
+  .contact-card {
+    background: var(--off-white);
+    border-radius: 10px;
+    padding: 20px 24px;
+    border: 1px solid var(--light-gray);
+    margin-top: 16px;
+  }
+
+  .contact-name {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin-bottom: 2px;
+  }
+
+  .contact-title {
+    font-size: 10px;
+    color: var(--slate-gray);
+    margin-bottom: 6px;
+  }
+
+  .contact-info {
+    font-size: 10px;
+    color: var(--tech-blue);
+    font-weight: 500;
+  }
+
+  /* ===== PAGE 6: APPENDIX ===== */
+  .appendix-page {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .appendix-content {
+    padding: 0 0.7in;
+    flex: 1;
+  }
+
+  .citation-group {
+    margin-bottom: 22px;
+  }
+
+  .citation-group-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--forest-green);
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--light-gray);
+  }
+
+  .citation-item {
+    font-size: 9.5px;
+    line-height: 1.6;
+    color: var(--slate-gray);
+    padding: 4px 0 4px 14px;
+    position: relative;
+  }
+
+  .citation-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 5px;
+    height: 5px;
+    background: var(--light-gray);
+    border-radius: 50%;
+  }
+
+  .page-footer {
+    padding: 0 0.7in 0.3in;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+  }
+
+  .page-footer-logo {
+    height: 20px;
+    opacity: 0.4;
+  }
+
+  .page-footer-text {
+    font-size: 8px;
+    color: var(--slate-gray);
+    opacity: 0.6;
+    letter-spacing: 0.5px;
+  }
+
+  .page-number {
+    font-size: 8px;
+    color: var(--slate-gray);
+    opacity: 0.5;
+  }
+
+  /* ===== TEAM SECTION ===== */
+  .team-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    margin: 12px 0;
+  }
+
+  .team-member {
+    background: var(--off-white);
+    border-radius: 8px;
+    padding: 12px;
+    text-align: center;
+  }
+
+  .team-member-name {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--charcoal);
+    margin-bottom: 2px;
+  }
+
+  .team-member-role {
+    font-size: 8px;
+    font-weight: 600;
+    color: var(--tech-blue);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 4px;
+  }
+
+  .team-member-bio {
+    font-size: 8px;
+    line-height: 1.45;
+    color: var(--slate-gray);
+  }
+
+  /* ===== DECORATIVE ELEMENTS ===== */
+  .divider {
+    height: 1px;
+    background: var(--light-gray);
+    margin: 14px 0;
+  }
+
+  .green-accent-line {
+    width: 40px;
+    height: 3px;
+    background: var(--forest-green);
+    border-radius: 2px;
+    margin-bottom: 14px;
+  }
+
+  .topo-pattern {
+    position: absolute;
+    opacity: 0.03;
+    pointer-events: none;
+  }
+
+  /* Fort Lewis image section */
+  .partner-strip {
+    display: flex;
+    gap: 14px;
+    margin: 10px 0;
+    align-items: stretch;
+  }
+
+  .partner-image-wrap {
+    width: 2.4in;
+    flex-shrink: 0;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .partner-image-wrap img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .partner-text {
+    flex: 1;
+  }
+
+  @media print {
+    .page {
+      margin: 0;
+      box-shadow: none;
+    }
+  }
+
+  @media screen {
+    body {
+      background: #e0e0e0;
+      padding: 20px 0;
+    }
+    .page {
+      margin: 0 auto 30px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.15);
+    }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== PAGE 1: COVER ==================== -->
+<div class="page cover">
+  <div class="cover-top">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="cover-logo">
+    <div class="cover-badge">Donor Introduction</div>
+  </div>
+
+  <img src="images/nathan-trenchuk-_Q9Gg3srGPI-unsplash.jpg" alt="Rural landscape" class="cover-bg">
+
+  <div class="cover-content">
+    <hr class="cover-rule">
+    <h1>The Center for<br>Rural AI</h1>
+    <h2>Building Rural Capacity in the AI Economy</h2>
+  </div>
+
+  <div class="cover-footer">
+    <span>ruralai.org</span>
+    <span>501(c)(3) Nonprofit</span>
+  </div>
+</div>
+
+<!-- ==================== PAGE 2: INTRODUCTION ==================== -->
+<div class="page intro-page">
+  <div class="page-header">
+    <div class="page-header-section">Overview</div>
+  </div>
+
+  <img src="images/farmer-AI.jpg" alt="AI in agriculture" class="intro-hero-strip">
+
+  <div class="intro-content">
+    <div class="section-label">The Opportunity</div>
+    <div class="section-title">Rural America is Underrepresented<br>in the AI Economy</div>
+
+    <p class="body-text">The Center for Rural AI (CRAI) is a newly formed 501(c)(3) nonprofit focused on a structural economic disparity in the United States: the lagging participation of rural communities in artificial intelligence. Rural America comprises a significant portion of the nation's population and economy, yet it has historically lagged in access to digital infrastructure, tech jobs, and innovation networks. The rise of AI has exacerbated these challenges.</p>
+
+    <div class="stat-row">
+      <div class="stat-card">
+        <div class="stat-number">60M+</div>
+        <div class="stat-label">Citizens live in<br>rural areas</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">~10%</div>
+        <div class="stat-label">Of U.S. GDP from rural<br>ecosystems</div>
+      </div>
+      <div class="stat-card" style="background: linear-gradient(135deg, var(--horizon-orange), var(--warm-earth));">
+        <div class="stat-number">$T+</div>
+        <div class="stat-label">AI-generated value<br>projected by 2030</div>
+      </div>
+    </div>
+
+    <p class="body-text">CRAI exists to shift this trajectory by building the institutional capacity rural regions need to adopt, deploy, and influence AI systems in ways that create economic opportunities and enhance community outcomes.</p>
+
+    <div class="divider"></div>
+
+    <div class="team-grid">
+      <div class="team-member">
+        <div class="team-member-name">Andrew Aitken</div>
+        <div class="team-member-role">Executive Director</div>
+        <div class="team-member-bio">Advised the U.S. White House, Microsoft, and Capital One; served on Boards of numerous technology foundations</div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-name">Adam Markham</div>
+        <div class="team-member-role">Technology Adviser</div>
+        <div class="team-member-bio">Directed AI research and systems engineering in government and critical infrastructure contexts</div>
+      </div>
+      <div class="team-member">
+        <div class="team-member-name">Marc Nager</div>
+        <div class="team-member-role">Adviser</div>
+        <div class="team-member-bio">Co-founded Startup Weekend; led programs at Techstars; partner at a VC focused on rural ecosystems</div>
+      </div>
+    </div>
+
+    <div class="partner-strip">
+      <div class="partner-image-wrap">
+        <img src="fort lewis college.jpeg" alt="Fort Lewis College">
+      </div>
+      <div class="partner-text">
+        <p class="body-text">CRAI and the AI Institute at Fort Lewis College in Durango, Colorado, a rural public institution advancing comprehensive AI education and engagement, have initiated discussions on collaborative pathways. This provides direct insight into the opportunities and constraints rural institutions face. In parallel, CRAI is engaging with frontier AI companies so that rural use cases inform product design while the technology is still evolving.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="page-footer-logo">
+    <div class="page-number">02</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 3: INVESTMENT THESIS ==================== -->
+<div class="page thesis-page">
+  <div class="page-header">
+    <div class="page-header-section">Investment Thesis</div>
+  </div>
+
+  <div class="thesis-content" style="padding-top: 0.15in;">
+    <div class="section-label">Why Now</div>
+    <div class="section-title">The Investment Thesis</div>
+
+    <div class="thesis-split">
+      <div class="thesis-left">
+        <p class="body-text">Rural regions possess underutilized competitive advantages, including lower operating costs, stronger long-term community retention, and rich real-world data environments in agriculture, healthcare, and logistics that are relevant to AI use cases. While rural communities have strengths, persistent training, infrastructure and digital adoption gaps curtail their ability to participate at scale in the emerging AI economy.</p>
+
+        <div style="margin-top: 16px;">
+          <div class="green-accent-line"></div>
+          <div style="font-size: 11px; font-weight: 700; color: var(--forest-green); margin-bottom: 10px;">Rural Competitive Advantages</div>
+          <ul class="advantage-list">
+            <li>Lower operating costs than urban tech hubs</li>
+            <li>Stronger long-term community retention rates</li>
+            <li>Rich real-world data in agriculture, healthcare & logistics</li>
+            <li>900+ rural & tribal colleges as distributed infrastructure</li>
+            <li>Culture of ingenuity born of necessity</li>
+          </ul>
+        </div>
+      </div>
+      <div class="thesis-right">
+        <img src="for-communities.jpg" alt="Rural community" class="thesis-image">
+        <img src="for-founders.jpg" alt="Innovation workspace" class="thesis-image" style="margin-bottom: 0;">
+      </div>
+    </div>
+
+    <div class="federal-box">
+      <div class="federal-box-title">Federal Policy Alignment</div>
+      <p>Federal policy is increasingly aligned with addressing regional disparities. The CHIPS and Science Act and related place-based programs authorized under it are designed to build technology capacity and innovation ecosystems outside of traditional tech centers. The Regional Technology and Innovation Hubs (Tech Hubs) program, for example, directs up to ~$10 billion over five years to support distributed technology innovation networks across the U.S., with appropriated funding already underway. Such federal initiatives provide structural support for innovation ecosystems that include rural and underserved communities.</p>
+    </div>
+
+    <div class="callout-box" style="margin-top: 20px;">
+      <p>"CRAI exists to ensure rural communities lead&mdash;not follow&mdash;in the AI economy."</p>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="page-footer-logo">
+    <div class="page-number">03</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 4: PROGRAMS ==================== -->
+<div class="page programs-page">
+  <div class="page-header">
+    <div class="page-header-section">Programs</div>
+  </div>
+
+  <div class="programs-content" style="padding-top: 0.1in;">
+    <div class="section-label">What We Do</div>
+    <div class="section-title">Our Programs</div>
+
+    <div class="programs-grid">
+      <div class="program-card ignition">
+        <div class="program-icon">&#9889;</div>
+        <div class="program-name">AI Ignition</div>
+        <div class="program-desc">A capacity-building initiative for rural higher education institutions and nonprofits. It begins with AI readiness assessments to identify high-impact, low-risk opportunities and advances to focused 90-day pilots that deliver measurable outcomes in student engagement, operational performance, or service delivery.</div>
+      </div>
+
+      <div class="program-card fluency">
+        <div class="program-icon">&#9881;</div>
+        <div class="program-name">AI Fluency</div>
+        <div class="program-desc">Role-specific AI education tailored to rural institutional contexts. Built around agentic content orchestration platform that contextualizes learning for real operational environments, this curriculum aims to generate usable intellectual property and scalable implementation beyond pilot phases.</div>
+      </div>
+
+      <div class="program-card council">
+        <div class="program-icon">&#9734;</div>
+        <div class="program-name">Peer Council</div>
+        <div class="program-desc">A shared network and knowledge library where participating institutions exchange tested use cases, tools, and insights from deployments. This collective repository cultivates durable institutional knowledge within the rural ecosystem.</div>
+      </div>
+
+      <div class="program-card summit">
+        <div class="program-icon">&#9968;</div>
+        <div class="program-name">AI in the Mountains Summit</div>
+        <div class="program-desc">An annual convening hosted in rotating rural mountain towns, bringing together AI researchers, policymakers, corporate partners, and rural stakeholders to ensure rural perspectives shape national and regional AI strategies.</div>
+      </div>
+    </div>
+
+    <div class="approach-banner">
+      <div class="approach-icon">&#8644;</div>
+      <div class="approach-text">
+        <strong>Hub-and-spoke model:</strong> All programs follow a hub-and-spoke approach anchored in evidence-based 90-day MVPs that prove impact before scaling. Initial investments of $10K&ndash;$20K per program are designed to generate early evidence required for larger donor and public funding.
+      </div>
+    </div>
+
+    <div class="programs-image-strip">
+      <img src="for-institutions.jpg" alt="Students with technology">
+      <img src="images/beth-macdonald-mbND4xtrlVY-unsplash.jpg" alt="Community learning">
+      <img src="images/trevor-walton-4QcncHHi7P8-unsplash.jpg" alt="Rural landscape">
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="page-footer-logo">
+    <div class="page-number">04</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 5: THE ASK ==================== -->
+<div class="page ask-page">
+  <div class="page-header">
+    <div class="page-header-section">Partnership</div>
+  </div>
+
+  <div class="ask-content" style="padding-top: 0.15in;">
+    <div class="section-label">Why It Matters</div>
+    <div class="section-title">Why Philanthropic Capital Matters</div>
+
+    <p class="body-text">Federal and corporate investment tends to follow demonstrated results; it rarely initiates them. Early philanthropic capital is essential to fund assessments, pilots, technology infrastructure and baseline operating capacity that generate the evidence of impact required to unlock scalable public and private funding streams. Without this initial support, promising rural AI adoption efforts may fail to reach the proof points needed to secure continued investment.</p>
+
+    <div class="pull-quote">
+      Philanthropic capital is the catalyst that transforms potential into proof&mdash;unlocking the federal and corporate investment that follows demonstrated results.
+    </div>
+
+    <div class="divider"></div>
+
+    <div class="section-label" style="margin-top: 10px;">Our Invitation</div>
+
+    <div class="ask-box">
+      <div class="ask-amount">$5,000,000</div>
+      <div class="ask-timeline">Philanthropic partnership over 18 months</div>
+      <p style="font-size: 10.5px; line-height: 1.6; margin-bottom: 16px; opacity: 0.9;">To launch core programs, demonstrate impact across 8&ndash;12 partner institutions, build foundational infrastructure, and position for access to federal funding beginning in 2027.</p>
+      <div style="font-size: 9px; font-weight: 600; letter-spacing: 1.5px; text-transform: uppercase; opacity: 0.6; margin-bottom: 10px;">This investment will support</div>
+      <ul class="ask-list">
+        <li>AI Ignition pilots at 8&ndash;10 rural higher education institutions</li>
+        <li>Development and deployment of the AI Fluency agentic curriculum platform</li>
+        <li>Launch of the 2026 AI in the Mountains Summit</li>
+        <li>Core operations and strategic partnerships</li>
+      </ul>
+    </div>
+
+    <p class="closing-text">If this opportunity resonates, we welcome a conversation about how your partnership can help ensure rural communities lead, not follow, in the AI economy.</p>
+
+    <div class="contact-card">
+      <div class="contact-name">Andrew Aitken</div>
+      <div class="contact-title">Executive Director, The Center for Rural AI</div>
+      <div class="contact-info">andrew@ruralai.org &nbsp;|&nbsp; ruralai.org</div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="page-footer-logo">
+    <div class="page-number">05</div>
+  </div>
+</div>
+
+<!-- ==================== PAGE 6: APPENDIX ==================== -->
+<div class="page appendix-page">
+  <div class="page-header">
+    <div class="page-header-section">Appendix</div>
+  </div>
+
+  <div class="appendix-content" style="padding-top: 0.15in;">
+    <div class="section-label">References</div>
+    <div class="section-title">Appendix &mdash; Source Citations</div>
+
+    <div style="margin-top: 20px;">
+      <div class="citation-group">
+        <div class="citation-group-title">Rural Population and Economic Context</div>
+        <div class="citation-item">USDA reports ~46 million rural residents (~14% of U.S. population).</div>
+        <div class="citation-item">McKinsey estimates rural areas are about one-seventh of population and ~10% of GDP.</div>
+      </div>
+
+      <div class="citation-group">
+        <div class="citation-group-title">Digital and Technological Divide Evidence</div>
+        <div class="citation-item">Rural broadband and device ownership lag compared with urban and suburban areas.</div>
+        <div class="citation-item">Digital divide in rural communities affects access to tech resources and economic participation.</div>
+      </div>
+
+      <div class="citation-group">
+        <div class="citation-group-title">Federal Policy and Innovation Ecosystems</div>
+        <div class="citation-item">CHIPS and Science Act authorized significant investment in R&D and regional innovation, incl. Tech Hubs.</div>
+        <div class="citation-item">Brookings and related research highlight rural opportunities via CHIPS programs.</div>
+      </div>
+
+      <div class="citation-group">
+        <div class="citation-group-title">Rural Economic Dynamics</div>
+        <div class="citation-item">Structural employment and economic composition differences between rural and urban areas persist.</div>
+        <div class="citation-item">Service and retail industries now dominate rural job growth; traditional sectors remain relevant but not dominant.</div>
+      </div>
+    </div>
+
+    <div style="margin-top: 0.5in;">
+      <div class="divider"></div>
+      <div style="text-align: center; padding: 30px 0;">
+        <img src="crai-logo-alpha.png" alt="CRAI" style="height: 50px; margin-bottom: 14px; display: block; margin-left: auto; margin-right: auto;">
+        <div style="font-family: 'Merriweather', Georgia, serif; font-size: 13px; font-style: italic; color: var(--forest-green); margin-bottom: 6px;">Empowering Rural AI Leadership</div>
+        <div style="font-size: 10px; color: var(--slate-gray);">Center for Rural AI &nbsp;&bull;&nbsp; ruralai.org &nbsp;&bull;&nbsp; 501(c)(3)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="page-footer">
+    <img src="crai-logo-alpha.png" alt="CRAI" class="page-footer-logo">
+    <div class="page-number">06</div>
+  </div>
+</div>
+
+</body>
+</html>
